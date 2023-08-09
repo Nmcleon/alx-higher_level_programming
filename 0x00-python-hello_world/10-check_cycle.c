@@ -1,12 +1,12 @@
 #include "lists.h"
 
 /**
- * c_cycle - checks linked list for cycle
+ *  check_cycle - checks linked list for cycle
  * @list: list to check
  *
  * Return: 1 (SUCCESS) 0 (FAIL)
  */
-int c_cycle(listint_t *list)
+int  check_cycle(listint_t *list)
 {
 	listint_t *slow = list;
 	listint_t *fast = list;
