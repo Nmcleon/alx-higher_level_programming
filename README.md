@@ -4,4 +4,5 @@
 - 0x01-python-if_else_loops_functions
 - 0x02-python-import_modules
 - 0x03. Python - Data Structures: Lists, Tuples
+- 0x04-python-more_data_structures
 - 
