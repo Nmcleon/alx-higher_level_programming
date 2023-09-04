@@ -9,6 +9,16 @@ Import the function:
 
     >>> add_integer = __import__('0-add_integer').add_integer
 
+Check for the module docstring:
+    >>> m = __import__("add_integer").__doc__
+    >>> len(m) > 1
+    True
+
+Checking for function docstring:
+    >>> f = add_integer.__doc__
+    >>> len(f) > 1
+    True
+
 Now test it:
 
     >>> add_integer(1, 2)
