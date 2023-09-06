@@ -27,8 +27,8 @@ Now test it:
     Traceback (most recent call last):
     TypeError: first_name must be a string
 
-    >>> say_my_name("", "Holberton")
-    My name is  Holberton
+    >>> say_my_name("", "Noah")
+    My name is  Noah
 
     >>> say_my_name("", "")
     My name is  
