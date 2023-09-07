@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+Size Validation
+"""
+
 class Square:
     """Represents a square.
     Private instance attribute: size.
