@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-"""0. My first square. """
+"""
+0. My first square.
+"""
 
 class Square:
-    """Represents an empty square."""
+    """
+    Represents an empty square.
+    """
     pass
