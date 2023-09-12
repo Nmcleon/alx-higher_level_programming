@@ -2,6 +2,7 @@
 """Module 14-pascal_triangle.
 Returns a list of lists of integers
 representing the Pascal’s triangle of n.
+l: triangle
 """
 
 
