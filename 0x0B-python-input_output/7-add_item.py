@@ -6,20 +6,20 @@ and then save them to a file.
 
 import sys
 import json
-import os.path
 
-save_to_json_file = __import__("7-save_to_json_file").save_to_json_file
-load_from_json_file = __import__("8-load_from_json_file").load_from_json_file
-
+# Define the filename for the JSON file
 my_file = 'add_item.json'
 
-my_list = []
+# Initialize an empty list or load existing data from the JSON file
+try:
+    with open(my_file, 'r', encoding='utf-8') as f:
+        my_list = json.load(f)
+except FileNotFoundError:
+    my_list = []
 
-if os.path.exists(my_file) and os.path.getsize(my_file) > 0:
-    my_list = load_from_json_file(my_file)
+# Add command-line arguments to the list
+my_list.extend(sys.argv[1:])
 
-if len(sys.argv) > 1:
-    for elem in sys.argv[1:]:
-        my_list.append(elem)
-
-save_to_json_file(my_list, my_file)
+# Save the updated list to the JSON file
+with open(my_file, 'w', encoding='utf-8') as f:
+    json.dump(my_list, f)
