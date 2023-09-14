@@ -1,4 +1,13 @@
-class Base:
+#!/usr/bin/python3
+"""
+The module contains the "Base" class
+"""
+
+import csv
+import json
+import turtle
+
+class Base: 
     """Base class for managing id attribute across all classes"""
 
     __nb_objects = 0
