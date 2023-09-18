@@ -7,7 +7,8 @@ import csv
 import json
 import turtle
 
-class Base: 
+
+class Base:
     """Base class for managing id attribute across all classes"""
 
     __nb_objects = 0
@@ -43,7 +44,7 @@ class Base:
         elif cls.__name__ is "Square":
             dummy = cls(1)
         dummy.update(**dictionary)
-        return dummy 
+        return dummy
 
     @classmethod
     def load_from_file(cls):
@@ -54,6 +55,6 @@ class Base:
                 l = cls.from_json_string(f.read())
             for i, e in enumerate(l):
                 l[i] = cls.create(**l[i])
-        except:
+        except BaseException:
             pass
         return l
