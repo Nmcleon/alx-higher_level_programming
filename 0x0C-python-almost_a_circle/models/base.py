@@ -49,12 +49,12 @@ class Base:
     @classmethod
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
-        l = []
+        loaded_instances = []
         try:
             with open(filename, 'r') as f:
-                l = cls.from_json_string(f.read())
-            for i, e in enumerate(l):
-                l[i] = cls.create(**l[i])
-        except BaseException:
+                loaded_instances = cls.from_json_string(f.read())
+            for i, e in enumerate(loaded_instances):
+                loaded_instances[i] = cls.create(**loaded_instances[i])
+        except:
             pass
-        return l
+        return loaded_instances
