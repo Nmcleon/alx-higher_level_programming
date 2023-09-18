@@ -55,6 +55,6 @@ class Base:
                 loaded_instances = cls.from_json_string(f.read())
             for i, e in enumerate(loaded_instances):
                 loaded_instances[i] = cls.create(**loaded_instances[i])
-        except:
+        except FileNotFoundError:
             pass
         return loaded_instances
