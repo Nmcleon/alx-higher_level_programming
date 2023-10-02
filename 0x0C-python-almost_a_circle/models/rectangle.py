@@ -8,13 +8,14 @@ from models.base import Base
 
 class Rectangle(Base):
     """A representation of a rectangle"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes the rectangle"""
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)
 
     @property
     def width(self):
@@ -23,22 +24,22 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """getter of height"""
+        """Getter for height attribute"""
         return self.__height
 
     @property
     def x(self):
-        """getter of x"""
+        """Getter for x attribute"""
         return self.__x
 
     @property
     def y(self):
-        """getter of y"""
+        """Getter for y attribute"""
         return self.__y
 
     @width.setter
     def width(self, value):
-        """setter of width"""
+        """Setter for width attribute"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -47,7 +48,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        """setter of height"""
+        """Setter for height attribute"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -56,7 +57,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """setter of x"""
+        """Setter for x attribute"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -65,7 +66,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """setter of y"""
+        """Setter for y attribute"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:

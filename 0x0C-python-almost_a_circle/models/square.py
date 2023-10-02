@@ -1,33 +1,43 @@
 #!/usr/bin/python3
 """
-This module contains the "Square" class
+Module containing the "Square" class
 """
 
+
+from models.base import Base
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
     """A representation of a square"""
+
     def __init__(self, size, x=0, y=0, id=None):
         """initializes the square"""
         super().__init__(size, size, x, y, id)
         self.size = size
 
-    @property
-    def size(self):
-        """getter for size"""
-        return self.width
 
-    @size.setter
-    def size(self, value):
-        """setter for size"""
-        self.width = value
-        self.height = value
+@property
+def size(self):
+    """getter for size"""
+    return self.width
 
-    def __str__(self):
-        """informal string representation of the square"""
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,
-                                                         self.y, self.width)
+
+@size.setter
+def size(self, value):
+    """setter for size"""
+    if type(value) is not int:
+        raise TypeError("width must be an integer")
+    if value <= 0:
+        raise ValueError("width must be > 0")
+    self.__width = value
+    self.__height = value
+
+
+def __str__(self):
+    """informal string representation of the square"""
+    return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,
+                                                     self.y, self.width)
 
     def update(self, *args, **kwargs):
         """update attributes"""

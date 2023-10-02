@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains tests for Base class
+Tests for Base class
 """
 
 import unittest
