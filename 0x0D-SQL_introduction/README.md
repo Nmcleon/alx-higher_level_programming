@@ -29,10 +29,8 @@ mysql> quit
 Bye
 ```
 
-### Use “container-on-demand” to run MySQL:
-- Instructions for running MySQL in a container.
-
 ##  Tasks
+
 List databases: Write a script that lists all databases in your MySQL server.
 
 Create a database: Write a script that creates the database hbtn_0c_0 in your MySQL server.
