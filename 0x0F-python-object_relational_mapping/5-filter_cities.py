@@ -25,17 +25,12 @@ if __name__ == "__main__":
             port=3306
         )
         cur = db.cursor()
-        num_rows = cur.execute("SELECT cities.name FROM cities WHERE state_id =\
-                (SELECT id FROM states WHERE name LIKE BINARY %s)\
-                ORDER BY cities.id;", (state_name, ))
-        row = cur.fetchone()
-        i = 1
-        for row in orws:
-            print(row[0], end='')
-            if i < num_rows:
-                print(end=', ')
-            i += 1
-        print()
+        cur.execute("""SELECT cities.name FROM
+                cities INNER JOIN states ON states.id=cities.state_id
+                WHERE states.name=%s""", (sys.argv[4],))
+    rows = cur.fetchall()
+    tmp = list(row[0] for row in rows)
+    print(*tmp, sep=", ")
         cur.close()
         db.close()
     except MySQLdb.Error as e:
