@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Lists all State objects that contain the letter a from the database hbtn_0e_6_usa"""
+"""Lists all State objects that contain the letter
+a from the database hbtn_0e_6_usa"""
 
 import sys
 from sqlalchemy import create_engine
@@ -18,7 +19,7 @@ if __name__ == "__main__":
     # Create Session
     session = Session()
 
-    # Query State objects containing the letter 'a'
+    # Query State objects having letter 'a'
     states_with_a = session.query(State).filter(State.name.like('%a%')).order_by(State.id)
 
     for state in states_with_a:
