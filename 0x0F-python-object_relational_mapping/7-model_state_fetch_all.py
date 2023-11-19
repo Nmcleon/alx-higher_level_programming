@@ -12,10 +12,10 @@ if __name__ == "__main__":
                            format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
 
-    # Creating a configured "Session" class
+    # Create configured "Session" class
     Session = sessionmaker(bind=engine)
 
-    # Create a Session
+    # Create Session
     session = Session()
 
     # Query all State objects, sorted by id
