@@ -24,16 +24,12 @@ if __name__ == "__main__":
             port=3306
         )
         cur = db.cursor()
-        query = """SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
-                   FROM cities
-                   JOIN states ON cities.state_id = states.id
-                   WHERE states.name = %s
-                   ORDER BY cities.id ASC"""
-        cur.execute(query, (state_name,))
-        row = cur.fetchone()
-        if row and row[0]:
-            print(row[0])
-
+        cur.execute("""SELECT cities.name FROM
+                    cities INNER JOIN states ON states.id=cities.state_id
+                    WHERE states.name=%s""", (sys.argv[4],))          
+        rows = cur.fetchall()
+        tmp = list(row[0] for row in rows)
+        print(*tmp, sep=", ")
         cur.close()
         db.close()
     except MySQLdb.Error as e:
