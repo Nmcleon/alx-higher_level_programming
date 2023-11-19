@@ -10,6 +10,7 @@ Base = declarative_base(metadata=mymetadata)
 
 
 class State(Base):
+    """Class representing the states table"""
 
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False, unique=True)
