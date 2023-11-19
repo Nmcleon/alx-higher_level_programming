@@ -22,8 +22,8 @@ if __name__ == "__main__":
             db=database
         )
         cur = db.cursor()
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id"
-        cur.execute(query, (state_name,))
+        num_rows = cur.execute("SELECT * FROM states WHERE states.name LIKE BINARY\
+                               '{}' ORDER BY states.id;".format(state_name))
         
         rows = cur.fetchall()
         for row in rows:
