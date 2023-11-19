@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Script that displays all values in the states table of hbtn_0e_0_usa where name matches the argument.
+Script displays all values in the states table
+of hbtn_0e_0_usa where name matches the argument.
 """
 import MySQLdb
 import sys
