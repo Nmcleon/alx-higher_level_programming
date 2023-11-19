@@ -25,16 +25,17 @@ if __name__ == "__main__":
             port=3306
         )
         cur = db.cursor()
-        query = """SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
-                   FROM cities
-                   JOIN states ON cities.state_id = states.id
-                   WHERE states.name = %s
-                   ORDER BY cities.id ASC"""
-        cur.execute(query, (state_name,))
+        num_rows = cur.execute("SELECT cities.name FROM cities WHERE state_id =\
+                (SELECT id FROM states WHERE name LIKE BINARY %s)\
+                ORDER BY cities.id;", (state_name, ))
         row = cur.fetchone()
-        if row and row[0]:
-            print(row[0])
-
+        i = 1
+        for row in orws:
+            print(row[0], end='')
+            if i < num_rows:
+                print(end=', ')
+            i += 1
+        print()
         cur.close()
         db.close()
     except MySQLdb.Error as e:
