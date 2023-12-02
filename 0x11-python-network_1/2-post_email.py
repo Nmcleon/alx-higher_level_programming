@@ -10,4 +10,3 @@ if __name__ == "__main__":
     header = parse.urlencode(value).encode()
     with request.urlopen(request.Request(url, header)) as response:
         print(response.read().decode("utf-8"))
-
