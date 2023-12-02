@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """POST an email #1"""
 
-from sys import argv
+from sys
 import requests
 
 if __name__ == "__main__":
-    url = argv[1]
-    email = {'email': argv[2]}
-    response = post(url, data=email)
-            print(response.text)
+   url = sys.argv[1]
+	 email = sys.argv[2]
+
+payload = {'email': email}
+
+response = requests.post(url, data=payload)
+print(response.text)
