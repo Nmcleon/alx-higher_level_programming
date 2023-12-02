@@ -1,14 +1,9 @@
 #!/usr/bin/python3
 """POST an email #1"""
 
-from sys
-import requests
-
 if __name__ == "__main__":
-   url = sys.argv[1]
-	 email = sys.argv[2]
+    from requests import post
+    from sys import argv
 
-payload = {'email': email}
-
-response = requests.post(url, data=payload)
-print(response.text)
+    html = post(argv[1], data={'email': argv[2]})
+    print(html.text)
