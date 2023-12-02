@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Error code #0 """
 
-form urllib.request import urlopen
+from urllib.request import urlopen
 from urllib.err import HTTPError
 from sys import argv
 
