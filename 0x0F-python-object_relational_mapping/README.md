@@ -47,5 +47,3 @@ This project covers object-relational mapping (ORM) in Python using the SQLAlche
 ### 13. Delete states
 * Write a script that deletes all `State` objects with name containing the letter 'a' from the database using SQLAlchemy.
 
-## Author
-* Guillaume - [GitHub profile](https://github.com/bilalayyache)
